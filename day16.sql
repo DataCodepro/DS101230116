@@ -1,0 +1,41 @@
+use pavemanacademy;
+show tables;
+select * from studentrecords;
+select studentid, age,sex from studentrecords where Pstatus = 'A' and traveltime >=3;
+select studentid, age,sex from studentrecords where Pstatus = 'A' or traveltime >=3;
+select studentid, age,sex from studentrecords where (Pstatus = 'A' and traveltime >=3) or (Mjob = 'other');
+select studentid, age,sex from studentrecords where Mjob is null;
+select studentid, age,sex from studentrecords where Mjob is not null;
+select studentid, age,sex from studentrecords where Mjob in('other','teacher');
+select studentid, age,sex,g1 from studentrecords where g1 between 10 and 15;
+create database HITMANTECHNOLOGY;
+use HITMANTECHNOLOGY;
+select * from EmployeeData;
+select distinct JobRole from EmployeeData;
+create table salesEXE  select * from EmployeeData where JobRole = 'Sales Executive';
+create table RS  select * from EmployeeData where JobRole = 'Research Scientist';
+create table LT  select * from EmployeeData where JobRole = 'Laboratory Technician';
+create table MD  select * from EmployeeData where JobRole = 'Manufacturing Director';
+create table HCR  select * from EmployeeData where JobRole = 'Healthcare Representative';
+create table MGR  select * from EmployeeData where JobRole = 'Manager';
+create table SR  select * from EmployeeData where JobRole = 'Sales Representative';
+create table RD  select * from EmployeeData where JobRole = 'Research Director';
+create table HR  select * from EmployeeData where JobRole = 'Human Resources';
+
+alter table EmployeeData add column Id  int not null primary key auto_increment first;
+alter table salesEXE add column Id  int not null primary key auto_increment first;
+alter table rs add column Id  int not null primary key auto_increment first;
+alter table lt add column Id  int not null primary key auto_increment first;
+alter table md add column Id  int not null primary key auto_increment first;
+alter table hcr add column Id  int not null primary key auto_increment first;
+alter table mgr add column Id  int not null primary key auto_increment first;
+alter table sr add column Id  int not null primary key auto_increment first;
+alter table rd add column Id  int not null primary key auto_increment first;
+alter table hr add column Id  int not null primary key auto_increment first;
+select * from rd;
+select sr.Age, sr.Attrition,sr.DailyRate, rd.Gender,rd.HourlyRate,rd.JobInvolvement from sr inner join rd on sr.id = rd.id;
+select sr.Age, sr.Attrition,sr.DailyRate, rd.Gender,rd.HourlyRate,rd.JobInvolvement from sr right join rd on sr.id = rd.id;
+select sr.Age, sr.Attrition,sr.DailyRate, rd.Gender,rd.HourlyRate,rd.JobInvolvement from sr left join rd on sr.id = rd.id;
+select sr.Age, sr.Attrition,sr.DailyRate, rd.Gender,rd.HourlyRate,rd.JobInvolvement from sr cross join rd on sr.id = rd.id;
+
+
